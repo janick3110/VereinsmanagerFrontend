@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vereinsmanager</title>
+
+</head>
+<body>
+<header>
+  <h1>Vereinsmanager</h1>
+</header>
+<div class="sidebar">
+  <ul>
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="#">Spieler</a></li>
+    <li><a href="#">Trikots</a></li>
+    <li><a href="#">Platz</a></li>
+  </ul>
+</div>
+<div class="content">
+  <div class="row">
+    <div class="column right" >
+      <div class="column segment" style="background-color:#aaa;">
+        <div class="row">
+            <h2>Spieler</h2>
+            <table>
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Geburtstag</th>
+                <th>Straße</th>
+                <th>Ort</th>
+                <th>E-Mail</th>
+                <th>Telefon</th>
+                <th>Team</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let player of players">
+                <td>{{ player.id}}</td>
+                <td>{{ player.firstname}}</td>
+                <td>{{ player.lastname}}</td>
+                <td>{{ player.date | date:'dd.MM.yyyy' }}</td>
+                <td>{{ player.street + " " + player.housenumber }}</td>
+                <td>{{ player.postalCode + " " + player.city }}</td>
+                <td><a href="mailto:{{ player.mailAdress }}">{{ player.mailAdress }}</a></td>
+                <td>{{ player.telephoneNumber }}</td>
+                <td>{{ player.team }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <div class="column segment" style="background-color:#aaa;">
+
+          <h2>Spieler</h2>
+          <table>
+            <!-- table content goes here -->
+          </table>
+
+      </div>
+      <div class="column segment" style="background-color:#aaa;">
+          <h2>Spieler</h2>
+          <table>
+            <!-- table content goes here -->
+          </table>
+      </div>
+      </div>
+    </div>
+
+</div>
+</body>
+</html>
