@@ -20,6 +20,69 @@
   <div class="row">
     <div class="column right" >
       <div class="column segment" style="background-color:#aaa;">
+        <h2>Datenpflege</h2>
+        <form method="post" action="http://localhost:8080/player/add">
+          <div>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname">
+          </div>
+
+          <div>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname">
+          </div>
+
+          <div>
+            <label for="birthday" >Birthday:</label>
+            <input type="date" id="birthday" name="birthday">
+          </div>
+
+          <div>
+            <label for="street" >Street:</label>
+            <input type="text" id="street" name="street">
+          </div>
+
+          <div>
+            <label for="housenumber">House Number:</label>
+            <input type="text" id="housenumber" name="housenumber">
+          </div>
+
+          <div>
+            <label for="city" >City:</label>
+            <input type="text" id="city" name="city">
+          </div>
+
+          <div>
+            <label for="postalCode">Postal Code:</label>
+            <input type="text" id="postalCode" name="postalCode">
+          </div>
+
+          <div>
+            <label for="mailAdress">Email:</label>
+            <input type="email" id="mailAdress" name="mailAdress">
+          </div>
+
+          <div>
+            <label for="telephone">Telephone:</label>
+            <input type="tel" id="telephone" name="telephone" >
+          </div>
+
+<!--          ToDo: BUG: Player is always submitted with ARCHIVE-->
+          <div>
+            <label for="team">Team:</label>
+            <select id="team" name="team">
+              <option *ngFor="let team of teams" [value]="team">{{team}}</option>
+            </select>
+          </div>
+
+
+          <input type="submit" value="Submit">
+        </form>
+
+
+
+      </div>
+      <div class="column segment" style="background-color:#aaa;">
         <div class="row">
           <h2>Spieler</h2>
           <table>

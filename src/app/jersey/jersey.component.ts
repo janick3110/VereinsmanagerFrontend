@@ -11,6 +11,18 @@ interface Jersey {
   year: number;
 }
 
+export enum teams {
+  U7 = "U7",
+  U9 = "U9",
+  U11 = "U11",
+  U13 = "U13",
+  U15 = "U15",
+  U17 = "U17",
+  U19 = "U19",
+  ARCHIVE = "ARCHIVE",
+  OTHER = "OTHER"
+}
+
 @Component({
   selector: 'app-jersey',
   templateUrl: './jersey.component.html',
@@ -19,9 +31,11 @@ interface Jersey {
 export class JerseyComponent {
   jerseys: Jersey[] = [];
 
+  
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+
     this.http.get<Jersey[]>('http://localhost:8080/jersey').subscribe(
       data => {
         this.jerseys = data;

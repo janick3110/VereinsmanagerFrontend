@@ -15,6 +15,18 @@ interface Player {
   team: string;
 }
 
+export enum teams {
+  U7 = "U7",
+  U9 = "U9",
+  U11 = "U11",
+  U13 = "U13",
+  U15 = "U15",
+  U17 = "U17",
+  U19 = "U19",
+  ARCHIVE = "ARCHIVE",
+  OTHER = "OTHER"
+}
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -22,7 +34,7 @@ interface Player {
 })
 export class PlayerComponent {
   players: Player[] = [];
-
+  teams = Object.values(teams);
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
