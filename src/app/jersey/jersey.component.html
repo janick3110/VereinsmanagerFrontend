@@ -1,1 +1,58 @@
-<p>jersey works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vereinsmanager</title>
+
+</head>
+<body>
+<header>
+  <h1>Vereinsmanager</h1>
+</header>
+<div class="sidebar">
+  <ul>
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="/players">Spieler</a></li>
+    <li><a href="/jerseys">Trikots</a></li>
+    <li><a href="#">Platz</a></li>
+  </ul>
+</div>
+<div class="content">
+  <div class="row">
+    <div class="column right" >
+      <div class="column segment" style="background-color:#aaa;">
+        <div class="row">
+          <h2>Trikotsätze</h2>
+          <table>
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Jugend</th>
+              <th>Sponsor</th>
+              <th>Anzahl Trikots</th>
+              <th>Verfügbare Nummern</th>
+              <th>Anzahl Hosen</th>
+              <th>Anzahl Stutzen</th>
+              <th>Jahr</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let jersey of jerseys">
+              <td>{{ jersey.id}}</td>
+              <td>{{ jersey.team}}</td>
+              <td>{{ jersey.sponsor}}</td>
+              <td>{{ jersey.numbers.length}}</td>
+              <td>{{ jersey.numbers.sort(compareNumbers).join(', ') }}</td>
+              <td>{{ jersey.amountPants}}</td>
+              <td>{{ jersey.amountSocks}}</td>
+              <td>{{ jersey.year }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

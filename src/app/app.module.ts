@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCheckboxModule } from '@angular/material/checkbox'; // Add this line
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -20,7 +21,8 @@ import { FieldsComponent } from './fields/fields.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCheckboxModule // Add this line
   ],
   providers: [],
   bootstrap: [AppComponent]
