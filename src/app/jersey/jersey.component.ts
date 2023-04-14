@@ -30,8 +30,8 @@ export enum teams {
 })
 export class JerseyComponent {
   jerseys: Jersey[] = [];
+  teams = Object.values(teams);
 
-  
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
