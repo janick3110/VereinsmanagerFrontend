@@ -2,56 +2,45 @@
 <html>
 <head>
   <title>Vereinsmanager</title>
-
 </head>
 <body>
-<header>
-  <h1>Vereinsmanager</h1>
-</header>
-<div class="sidebar">
-  <ul>
-    <li><a href="#">Dashboard</a></li>
-    <li><a href="/players">Spieler</a></li>
-    <li><a href="/jerseys">Trikots</a></li>
-    <li><a href="#">Platz</a></li>
-  </ul>
-</div>
 <div class="content">
-  <div class="row">
-    <div class="column right" >
-      <div class="column segment" style="background-color:#aaa;">
-        <div class="row">
-            <h2>Spieler</h2>
-          <div *ngIf="players!.length > 0; else noPlayers">
-            {{ players!.length }} Spieler und Spielerinnen gefunden.
-          </div>
-
-          <ng-template #noPlayers>
-            Keine Einträge gefunden.
-          </ng-template>
-            </div>
-        </div>
-      <div class="column segment" style="background-color:#aaa;">
-
-          <h2>Trikots</h2>
-        <div *ngIf="players!.length > 0; else noJerseys">
-          {{ jerseys!.length }} Trikotsätze gefunden.
-        </div>
-
-        <ng-template #noJerseys>
-          Keine Trikotsätze gefunden.
-        </ng-template>
-
-      </div>
-      <div class="column segment" style="background-color:#aaa;">
-          <h2>Trainings- und Spielstätten</h2>
-          <table>
-            <!-- table content goes here -->
-          </table>
-      </div>
-      </div>
+  <div class="column" onclick="location.href='/players'">
+    <h2>Spieler</h2>
+    <div *ngIf="players!.length > 0; else noPlayers">
+      {{ players!.length }} Spieler und Spielerinnen gefunden.
     </div>
 
+    <ng-template #noPlayers>
+      Keine Einträge gefunden.
+    </ng-template>
+  </div>
+  <div class="column" onclick="location.href='/jerseys'">
+    <h2>Trikots</h2>
+    <div *ngIf="jerseys!.length > 0; else noJerseys">
+      {{ jerseys!.length }} Trikotsätze gefunden.
+    </div>
+
+    <ng-template #noJerseys>
+      Keine Trikotsätze gefunden.
+    </ng-template>
+  </div>
+  <div class="column" onclick="location.href='#'">
+    <h2>Trainings- und Spielstätten</h2>
+  </div>
+  <div class="column" onclick="location.href='#'">
+    <h2>Angebote</h2>
+  </div>
+  <div class="column" onclick="location.href='persons'">
+    <h2>Personen</h2>
+    <div *ngIf="persons!.length > 0; else noPersons">
+      {{ players!.length }} Verantwortliche gefunden.
+    </div>
+
+    <ng-template #noPersons>
+      Keine Einträge gefunden.
+    </ng-template>
+  </div>
 </div>
 </body>
 </html>

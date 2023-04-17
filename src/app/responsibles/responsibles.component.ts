@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-interface Player {
+interface Person {
   id: number;
   firstname: string;
   lastname: string;
-  date: string;
   housenumber: number;
   street: string;
   city: string;
   postalCode: number;
   mailAdress: string;
   telephoneNumber: string;
-  team: string;
 }
 
 export enum teams {
@@ -28,19 +26,19 @@ export enum teams {
 }
 
 @Component({
-  selector: 'app-player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+  selector: 'app-responsibles',
+  templateUrl: './responsibles.component.html',
+  styleUrls: ['./responsibles.component.css']
 })
-export class PlayerComponent {
-  players: Player[] = [];
+export class ResponsiblesComponent {
+  persons: Person[] = [];
   teams = Object.values(teams);
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<Player[]>('http://localhost:8080/player').subscribe(
+    this.http.get<Person[]>('http://localhost:8080/persons').subscribe(
       data => {
-        this.players = data;
+        this.persons = data;
       },
       error => {
         console.error(error);
@@ -48,18 +46,10 @@ export class PlayerComponent {
     );
   }
 
-  deletePlayer(id: number) {
-    const url = `http://localhost:8080/player/delete/${id}`;
+  deletePerson(id: number) {
+    const url = `http://localhost:8080/persons/delete/${id}`;
     this.http.delete(url).subscribe(() => {
-      this.players = this.players.filter(player => player.id !== id);
+      this.persons = this.persons.filter(person => person.id !== id);
     });
   }
 }
-
-
-
-
-
-
-
-

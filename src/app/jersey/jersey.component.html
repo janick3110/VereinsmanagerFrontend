@@ -2,26 +2,14 @@
 <html>
 <head>
   <title>Vereinsmanager</title>
-
 </head>
 <body>
-<header>
-  <h1>Vereinsmanager</h1>
-</header>
-<div class="sidebar">
-  <ul>
-    <li><a href="#">Dashboard</a></li>
-    <li><a href="/players">Spieler</a></li>
-    <li><a href="/jerseys">Trikots</a></li>
-    <li><a href="#">Platz</a></li>
-  </ul>
-</div>
 <div class="content">
   <div class="row">
     <div class="column right" >
       <div class="column segment" style="background-color:#aaa;">
         <h2>Datenpflege</h2>
-        <form method="post" action="http://localhost:8080/jersey/add" target = "_self">
+        <form id = "data" method="post" action="http://localhost:8080/jersey/add" target = "_self">
           <div>
             <label for="team">Jugend:</label>
             <select id="team" name="team">
@@ -54,9 +42,7 @@
             <input type="number" id="year" name="year">
           </div>
 
-
-
-          <input type="submit" value="Submit">
+          <input type="submit">
         </form>
 
 
@@ -76,6 +62,7 @@
               <th>Anzahl Hosen</th>
               <th>Anzahl Stutzen</th>
               <th>Jahr</th>
+              <th>Löschen</th>
             </tr>
             </thead>
             <tbody>
@@ -88,6 +75,7 @@
               <td>{{ jersey.amountPants}}</td>
               <td>{{ jersey.amountSocks}}</td>
               <td>{{ jersey.year }}</td>
+              <td><button (click)="deleteJersey(jersey.id)">&#x1F5D1;</button></td>
             </tr>
             </tbody>
           </table>
@@ -99,3 +87,9 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+

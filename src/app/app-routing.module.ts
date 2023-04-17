@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import { JerseyComponent } from './jersey/jersey.component';
 import { PlayerComponent } from './player/player.component';
+import { ResponsiblesComponent } from './responsibles/responsibles.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'players', component: PlayerComponent },
   { path: 'jerseys', component: JerseyComponent },
+  { path: 'persons', component: ResponsiblesComponent },
 //  { path: 'training', component: TrainingComponent }
 ];
 

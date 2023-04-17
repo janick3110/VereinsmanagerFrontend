@@ -50,4 +50,11 @@ export class JerseyComponent {
     return a - b;
   }
 
+  deleteJersey(id: number) {
+    const url = `http://localhost:8080/jersey/delete/${id}`;
+    this.http.delete(url).subscribe(() => {
+      this.jerseys = this.jerseys.filter(jersey => jersey.id !== id);
+    });
+  }
+
 }

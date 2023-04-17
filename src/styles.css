@@ -1,1 +1,155 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 85%;
+}
+
+.segment{
+  width: 75%;
+  background: dimgray;
+  alignment: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+/*@media screen and (max-width: 600px) {*/
+/*  .column {*/
+/*    width: 100%;*/
+/*  }*/
+/*}*/
+
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  height: 10%;
+  line-height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  height: 90%;
+  display: flex;
+}
+
+.sidebar {
+  background-color: #333;
+  color: white;
+  width: 15%;
+  float: left;
+  padding: 10px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+}
+
+.sidebar li a {
+  color: white;
+  text-decoration: none;
+}
+
+.content-wrapper {
+  background-color: #f2f2f2;
+  width: 85%;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+}
+
+.content {
+  width: 100%;
+}
+
+.segment {
+  margin-bottom: 20px;
+}
+
+.segment h2 {
+  margin-top: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}
+
+form div {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+form label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+form input {
+  display: inline-block;
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form select {
+  display: inline-block;
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+

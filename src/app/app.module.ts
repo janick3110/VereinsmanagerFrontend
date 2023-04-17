@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { JerseyComponent } from './jersey/jersey.component';
 import { PlayerComponent } from './player/player.component';
 import { FieldsComponent } from './fields/fields.component';
+import { ResponsiblesComponent } from './responsibles/responsibles.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FieldsComponent } from './fields/fields.component';
     HomeComponent,
     JerseyComponent,
     PlayerComponent,
-    FieldsComponent
+    FieldsComponent,
+    ResponsiblesComponent
   ],
   imports: [
     BrowserModule,

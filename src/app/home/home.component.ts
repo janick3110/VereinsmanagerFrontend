@@ -30,6 +30,17 @@ interface Field {
   team: string;
 }
 
+interface Person {
+  id: number;
+  firstname: string;
+  lastname: string;
+  housenumber: number;
+  street: string;
+  city: string;
+  postalCode: number;
+  mailAdress: string;
+  telephoneNumber: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -40,6 +51,7 @@ interface Field {
 export class HomeComponent {
   players: Player[] = [];
   jerseys: Jersey[] = [];
+  persons: Person[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -55,6 +67,14 @@ export class HomeComponent {
     this.http.get<Jersey[]>('http://localhost:8080/jersey').subscribe(
       data => {
         this.jerseys = data;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+    this.http.get<Person[]>('http://localhost:8080/persons').subscribe(
+      data => {
+        this.persons = data;
       },
       error => {
         console.error(error);

@@ -19,12 +19,6 @@
             <label for="lastname">Last Name:</label>
             <input type="text" id="lastname" name="lastname">
           </div>
-
-          <div>
-            <label for="birthday" >Birthday:</label>
-            <input type="date" id="birthday" name="birthday">
-          </div>
-
           <div>
             <label for="street" >Street:</label>
             <input type="text" id="street" name="street">
@@ -54,16 +48,6 @@
             <label for="telephone">Telephone:</label>
             <input type="tel" id="telephone" name="telephone" >
           </div>
-
-
-          <div>
-            <label for="team">Team:</label>
-            <select id="team" name="team">
-              <option *ngFor="let team of teams" [value]="team">{{team}}</option>
-            </select>
-          </div>
-
-
           <input type="submit" value="Submit">
         </form>
 
@@ -72,34 +56,30 @@
       </div>
       <div class="column segment" style="background-color:#aaa;">
         <div class="row">
-          <h2>Spieler</h2>
+          <h2>Verantwortliche</h2>
           <table>
             <thead>
             <tr>
               <th>ID</th>
               <th>Vorname</th>
               <th>Nachname</th>
-              <th>Geburtstag</th>
               <th>Straße</th>
               <th>Ort</th>
               <th>E-Mail</th>
               <th>Telefon</th>
-              <th>Team</th>
               <th>Löschen</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let player of players">
-              <td>{{ player.id}}</td>
-              <td>{{ player.firstname}}</td>
-              <td>{{ player.lastname}}</td>
-              <td>{{ player.date | date:'dd.MM.yyyy' }}</td>
-              <td>{{ player.street + " " + player.housenumber }}</td>
-              <td>{{ player.postalCode + " " + player.city }}</td>
-              <td><a href="mailto:{{ player.mailAdress }}">{{ player.mailAdress }}</a></td>
-              <td>{{ player.telephoneNumber }}</td>
-              <td>{{ player.team }}</td>
-              <td><button (click)="deletePlayer(player.id)">&#x1F5D1;</button></td>
+            <tr *ngFor="let person of persons">
+              <td>{{ person.id}}</td>
+              <td>{{ person.firstname}}</td>
+              <td>{{ person.lastname}}</td>
+              <td>{{ person.street + " " + person.housenumber }}</td>
+              <td>{{ person.postalCode + " " + person.city }}</td>
+              <td><a href="mailto:{{ person.mailAdress }}">{{ person.mailAdress }}</a></td>
+              <td>{{ person.telephoneNumber }}</td>
+              <td><button (click)="deletePerson(person.id)">&#x1F5D1;</button></td>
             </tr>
             </tbody>
           </table>
@@ -111,3 +91,4 @@
 </div>
 </body>
 </html>
+
