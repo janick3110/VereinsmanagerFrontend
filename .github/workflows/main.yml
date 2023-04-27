@@ -1,0 +1,25 @@
+name: Update version number
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  update_version:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Aktualisiere Versionsnummer
+      run: |
+        version=$(git rev-list --count HEAD)
+        sed -i "s/Vereinsmanager v[0-9\.]\+/Vereinsmanager v$version/" VereinsmanagementFrontend/src/app/app.component.html
+
+    - name: Commit und Push Änderungen
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add VereinsmanagementFrontend/src/app/index.html
+        git commit -m "Update version number to $version"
+        git push
