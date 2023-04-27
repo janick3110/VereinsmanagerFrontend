@@ -4,6 +4,46 @@
   <title>Vereinsmanager</title>
 </head>
 <body>
+<!-- Add this to your HTML code -->
+<div id="edit-modal-wrapper" hidden>
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeEditModal()">&times;</span>
+      <h2>Trikotsatz bearbeiten</h2>
+      <form id="edit-form">
+        <input type="hidden" id="edit-id">
+        <div>
+          <label for="edit-team">Jugend:</label>
+          <select id="edit-team" name="edit-team">
+            <option *ngFor="let team of teams" [value]="team">{{team}}</option>
+          </select>
+        </div>
+        <div>
+          <label for="edit-sponsorName">Sponsor:</label>
+          <input type="text" id="edit-sponsorName" name="edit-sponsorName">
+        </div>
+        <div>
+          <label for="edit-numbers">Verfügbare Nummern:</label>
+          <input type="text" id="edit-numbers" name="edit-numbers">
+        </div>
+        <div>
+          <label for="edit-amountPants" >Anzahl Hosen:</label>
+          <input type="number" id="edit-amountPants" name="edit-amountPants">
+        </div>
+        <div>
+          <label for="edit-amountSocks" >Anzahl Stutzenpaare:</label>
+          <input type="number" id="edit-amountSocks" name="edit-amountSocks">
+        </div>
+        <div>
+          <label for="edit-year">Jahr:</label>
+          <input type="number" id="edit-year" name="edit-year">
+        </div>
+        <input type="submit" value="Speichern">
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="content">
   <div class="row">
     <div class="column right" >
@@ -16,37 +56,32 @@
               <option *ngFor="let team of teams" [value]="team">{{team}}</option>
             </select>
           </div>
-
           <div>
             <label for="sponsorName">Sponsor:</label>
             <input type="text" id="sponsorName" name="sponsorName">
           </div>
-
           <div>
             <label for="numbers">Verfügbare Nummern:</label>
             <input type="text" id="numbers" name="numbers">
           </div>
-
           <div>
             <label for="amountPants" >Anzahl Hosen:</label>
             <input type="number" id="amountPants" name="amountPants">
           </div>
-
           <div>
             <label for="amountSocks" >Anzahl Stutzenpaare:</label>
             <input type="number" id="amountSocks" name="amountSocks">
           </div>
-
           <div>
             <label for="year">Jahr:</label>
             <input type="number" id="year" name="year">
           </div>
-
+          <div>
+            <label for="image">Foto:</label>
+            <input type="file" id="image" name="image">
+          </div>
           <input type="submit">
         </form>
-
-
-
       </div>
       <div class="column segment" style="background-color:#aaa;">
         <div class="row">
@@ -55,6 +90,7 @@
             <thead>
             <tr>
               <th>ID</th>
+              <th>Bild</th>
               <th>Jugend</th>
               <th>Sponsor</th>
               <th>Anzahl Trikots</th>
@@ -62,12 +98,14 @@
               <th>Anzahl Hosen</th>
               <th>Anzahl Stutzen</th>
               <th>Jahr</th>
+              <th>Aktualisieren</th>
               <th>Löschen</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let jersey of jerseys">
               <td>{{ jersey.id}}</td>
+              <td></td>
               <td>{{ jersey.team}}</td>
               <td>{{ jersey.sponsor}}</td>
               <td>{{ jersey.numbers.length}}</td>
@@ -75,6 +113,7 @@
               <td>{{ jersey.amountPants}}</td>
               <td>{{ jersey.amountSocks}}</td>
               <td>{{ jersey.year }}</td>
+              <td><button (click)="openEditModal(jersey)">Bearbeiten</button></td>
               <td><button (click)="deleteJersey(jersey.id)">&#x1F5D1;</button></td>
             </tr>
             </tbody>
@@ -83,8 +122,9 @@
       </div>
     </div>
   </div>
-
 </div>
+
+
 </body>
 </html>
 
