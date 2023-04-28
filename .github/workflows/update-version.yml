@@ -2,24 +2,34 @@ name: Update version number
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   update_version:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.4.0
+        with:
+          ref: ${{ github.ref }}
 
-    - name: Aktualisiere Versionsnummer
-      run: |
-        version=$(git rev-list --count HEAD)
-        sed -i "s/Vereinsmanager v[0-9\.]\+/Vereinsmanager v$version/" VereinsmanagementFrontend/src/app/app.component.html
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: '16.x'
 
-    - name: Commit und Push Änderungen
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add VereinsmanagementFrontend/src/app/index.html
-        git commit -m "Update version number to $version"
-        git push
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update version number
+        run: |
+          version=$(git rev-list --count HEAD)
+          sed -i "s/Vereinsmanager v[0-9\.]\+/Vereinsmanager v$version/" VereinsmanagementFrontend/src/app/index.html
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add VereinsmanagementFrontend/src/app/index.html
+          git commit -m "Update version number to $version"
+          git push
