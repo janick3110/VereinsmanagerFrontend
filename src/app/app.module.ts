@@ -11,6 +11,7 @@ import { PlayerComponent } from './player/player.component';
 import { FieldsComponent } from './fields/fields.component';
 import { ResponsiblesComponent } from './responsibles/responsibles.component';
 import { BookingsComponent } from './bookings/bookings.component';
+import { SportsActivitiesComponent } from './sports-activities/sports-activities.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BookingsComponent } from './bookings/bookings.component';
     PlayerComponent,
     FieldsComponent,
     ResponsiblesComponent,
-    BookingsComponent
+    BookingsComponent,
+    SportsActivitiesComponent
   ],
   imports: [
     BrowserModule,

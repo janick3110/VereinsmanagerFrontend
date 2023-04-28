@@ -9,6 +9,7 @@ import { PlayerComponent } from './player/player.component';
 import { ResponsiblesComponent } from './responsibles/responsibles.component';
 import { BookingsComponent} from './bookings/bookings.component';
 import { FieldsComponent} from './fields/fields.component';
+import { SportsActivitiesComponent } from  './sports-activities/sports-activities.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'persons', component: ResponsiblesComponent },
   { path: 'bookings', component: BookingsComponent },
   { path: 'fields', component: FieldsComponent },
+  { path: 'activities', component: SportsActivitiesComponent },
 //  { path: 'training', component: TrainingComponent }
 ];
 

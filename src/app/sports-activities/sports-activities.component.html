@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vereinsmanager</title>
+</head>
+<body>
+<div class="content">
+  <div class="row">
+    <div class="column right" >
+      <div class="column segment" style="background-color:#aaa;">
+        <h2>Datenpflege</h2>
+        <form method="post" action="http://localhost:8080/activities/add" target="_self">
+          <div>
+            <label for="name">Bezeichnung:</label>
+            <input type="text" id="name" name="name">
+          </div>
+
+          <div>
+            <label for="responsibleID">Verantwortliche(r):</label>
+            <select id="responsibleID" name="responsibleID"></select>
+          </div>
+          <input type="submit" value="Submit">
+        </form>
+
+
+
+      </div>
+      <div class="column segment" style="background-color:#aaa;">
+        <div class="row">
+          <h2>Aktivität</h2>
+          <table>
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Verantwortliche(r)</th>
+              <th>Aktualisieren</th>
+              <th>Löschen</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let activity of sportsActivities">
+              <td>{{ activity.id}}</td>
+              <td>{{ activity.name }}</td>
+              <td>
+                {{ GetCorrectName(activity.id) }}
+              </td>
+              <td></td>
+              <td></td>
+<!--              <td><button (click)="deletePerson(person.id)">&#x1F5D1;</button></td>-->
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+

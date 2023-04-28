@@ -20,12 +20,14 @@
       </div>
       <div class="column segment" style="background-color:#aaa;">
         <div class="row">
-          <h2>Trikotsätze</h2>
+          <h2>Spiel- und Trainingsstätten</h2>
           <table>
             <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
+              <th>Straße</th>
+              <th>Ort</th>
               <th>Aktualisieren</th>
               <th>Löschen</th>
             </tr>
@@ -34,6 +36,8 @@
             <tr *ngFor="let field of fields">
               <td>{{ field.id}}</td>
               <td>{{ field.name}}</td>
+              <td>{{ field.street + " " + field.houseNumber}}</td>
+              <td>{{ field.zipCode + " " + field.city}}</td>
               <td></td>
               <td></td>
 <!--              <td><button (click)="deleteBooking(booking.id)">&#x1F5D1;</button></td>-->

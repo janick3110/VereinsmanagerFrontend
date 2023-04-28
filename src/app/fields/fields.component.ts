@@ -4,6 +4,10 @@ import { HttpClient } from '@angular/common/http';
 interface Field{
   id: number;
   name: string;
+  street: string;
+  houseNumber: number;
+  zipCode: number;
+  city: string;
 }
 
 @Component({

@@ -11,6 +11,7 @@ interface Person {
   postalCode: number;
   mailAdress: string;
   telephoneNumber: string;
+  role: string;
 }
 
 export enum teams {

@@ -9,7 +9,7 @@
     <div class="column right" >
       <div class="column segment" style="background-color:#aaa;">
         <h2>Datenpflege</h2>
-        <form method="post" action="http://localhost:8080/player/add" target="_self">
+        <form method="post" action="http://localhost:8080/persons/add" target="_self">
           <div>
             <label for="firstname">First Name:</label>
             <input type="text" id="firstname" name="firstname">
@@ -48,6 +48,10 @@
             <label for="telephone">Telephone:</label>
             <input type="tel" id="telephone" name="telephone" >
           </div>
+          <div>
+            <label for="role">Telephone:</label>
+            <input type="text" id="role" name="role" >
+          </div>
           <input type="submit" value="Submit">
         </form>
 
@@ -67,6 +71,7 @@
               <th>Ort</th>
               <th>E-Mail</th>
               <th>Telefon</th>
+              <th>Rolle</th>
               <th>Löschen</th>
             </tr>
             </thead>
@@ -79,6 +84,7 @@
               <td>{{ person.postalCode + " " + person.city }}</td>
               <td><a href="mailto:{{ person.mailAdress }}">{{ person.mailAdress }}</a></td>
               <td>{{ person.telephoneNumber }}</td>
+              <td>{{ person.role }}</td>
               <td><button (click)="deletePerson(person.id)">&#x1F5D1;</button></td>
             </tr>
             </tbody>

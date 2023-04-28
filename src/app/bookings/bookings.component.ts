@@ -17,6 +17,11 @@ interface Field {
   segments: number;
 }
 
+interface Activity {
+  id: number;
+  name: string;
+}
+
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
@@ -25,6 +30,7 @@ interface Field {
 export class BookingsComponent {
   bookings: Booking[] = [];
   fields: Field[] = [];
+  activities: Activity[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -51,12 +57,27 @@ export class BookingsComponent {
     fetch("http://localhost:8080/fields")
       .then(response => response.json())
       .then(fields => {
-        fields.forEach((field: { id: string; name: string | null; }) => {
+        fields.forEach((field: Field) => {
           const option = document.createElement("option");
-          option.value = field.id;
+          option.value = field.id.toString();
           option.textContent = "(" + field.id + ") " + field.name;
           // @ts-ignore
           select.appendChild(option);
+        });
+      })
+      .catch(error => console.error(error));
+
+    const group = document.getElementById("idOfActivity");
+
+    fetch("http://localhost:8080/activities")
+      .then(response => response.json())
+      .then(activities => {
+        activities.forEach((activitiy: Activity) => {
+          const option = document.createElement("option");
+          option.value = activitiy.id.toString();
+          option.textContent = "(" + activitiy.id + ") " + activitiy.name;
+          // @ts-ignore
+          group.appendChild(option);
         });
       })
       .catch(error => console.error(error));
