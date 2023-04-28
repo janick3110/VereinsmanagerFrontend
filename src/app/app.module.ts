@@ -10,6 +10,7 @@ import { JerseyComponent } from './jersey/jersey.component';
 import { PlayerComponent } from './player/player.component';
 import { FieldsComponent } from './fields/fields.component';
 import { ResponsiblesComponent } from './responsibles/responsibles.component';
+import { BookingsComponent } from './bookings/bookings.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ResponsiblesComponent } from './responsibles/responsibles.component';
     JerseyComponent,
     PlayerComponent,
     FieldsComponent,
-    ResponsiblesComponent
+    ResponsiblesComponent,
+    BookingsComponent
   ],
   imports: [
     BrowserModule,

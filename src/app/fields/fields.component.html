@@ -1,1 +1,51 @@
-<p>fields works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vereinsmanager</title>
+</head>
+<body>
+
+<div class="content">
+  <div class="row">
+    <div class="column right" >
+      <div class="column segment" style="background-color:#aaa;">
+        <h2>Datenpflege</h2>
+        <form id = "data" method="post" action="http://localhost:8080/bookings/add" target = "_self">
+          <div>
+            <label for="name">Beschreibung:</label>
+            <input type="text" id="name" name="description">
+          </div>
+          <input type="submit">
+        </form>
+      </div>
+      <div class="column segment" style="background-color:#aaa;">
+        <div class="row">
+          <h2>Trikotsätze</h2>
+          <table>
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Aktualisieren</th>
+              <th>Löschen</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let field of fields">
+              <td>{{ field.id}}</td>
+              <td>{{ field.name}}</td>
+              <td></td>
+              <td></td>
+<!--              <td><button (click)="deleteBooking(booking.id)">&#x1F5D1;</button></td>-->
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

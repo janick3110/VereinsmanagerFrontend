@@ -1,1 +1,81 @@
-<p>bookings works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vereinsmanager</title>
+</head>
+<body>
+
+<div class="content">
+  <div class="row">
+    <div class="column right" >
+      <div class="column segment" style="background-color:#aaa;">
+        <h2>Datenpflege</h2>
+        <form id = "data" method="post" action="http://localhost:8080/bookings/add" target = "_self">
+          <div>
+            <label for="description">Beschreibung:</label>
+            <input type="text" id="description" name="description">
+          </div>
+          <div>
+            <label for="idOfGroup">Angebot:</label>
+            <input type="number" id="idOfGroup" name="idOfGroup">
+          </div>
+          <div>
+            <label for="idOfField">Ort:</label>
+            <select id="idOfField" name="idOfField"></select>
+          </div>
+          <div>
+            <label for="amountSegmentsOfField" >Platzbedarf:</label>
+            <input type="range" id="amountSegmentsOfField" name="amountSegmentsOfField" min="0" max="100">
+            <p>Platzbedarf: <span id="slider-value">50</span>%</p>
+          </div>
+          <div>
+            <label for="startTime">Startzeit:</label>
+            <input type="datetime-local" id="startTime" name="startTime">
+          </div>
+          <div>
+            <label for="endTime">Endzeit:</label>
+            <input type="datetime-local" id="endTime" name="endTime">
+          </div>
+          <input type="submit">
+        </form>
+      </div>
+      <div class="column segment" style="background-color:#aaa;">
+        <div class="row">
+          <h2>Trikotsätze</h2>
+          <table>
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Beschreibung</th>
+              <th>Angebot</th>
+              <th>Ort</th>
+              <th>Platzbedarf</th>
+              <th>Startzeit</th>
+              <th>Endzeit</th>
+              <th>Aktualisieren</th>
+              <th>Löschen</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let booking of bookings">
+              <td>{{ booking.id}}</td>
+              <td>{{ booking.description}}</td>
+              <td>{{ booking.idOfGroup}}</td>
+              <td>{{ booking.idOfField}}</td>
+              <td>{{ booking.amountSegmentsOfField}}</td>
+              <td>{{ booking.startTime | date: 'dd.MM.yyyy - HH:mm' }}</td>
+              <td>{{ booking.endTime | date: 'dd.MM.yyyy - HH:mm' }}</td>
+              <td></td>
+              <td><button (click)="deleteBooking(booking.id)">&#x1F5D1;</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

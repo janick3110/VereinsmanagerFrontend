@@ -27,9 +27,25 @@
   </div>
   <div class="column" onclick="location.href='#'">
     <h2>Trainings- und Spielstätten</h2>
+
+    <div *ngIf="fields!.length > 0; else noFields">
+      {{ fields!.length }} Trainings- und Spielstätte(n) gefunden.
+    </div>
+
+    <ng-template #noFields>
+      Keine Trainings- und Spielstätten gefunden.
+    </ng-template>
   </div>
+
   <div class="column" onclick="location.href='bookings'">
     <h2>Platz-Buchungen</h2>
+    <div *ngIf="bookings!.length > 0; else noBookings">
+      {{ bookings!.length }} Buchung(en) gefunden.
+    </div>
+
+    <ng-template #noBookings>
+      Keine Buchungen gefunden.
+    </ng-template>
   </div>
   <div class="column" onclick="location.href='#'">
     <h2>Angebote</h2>
@@ -37,11 +53,11 @@
   <div class="column" onclick="location.href='persons'">
     <h2>Personen</h2>
     <div *ngIf="persons!.length > 0; else noPersons">
-      {{ players!.length }} Verantwortliche gefunden.
+      {{ players!.length }} verantwortliche Person(en) gefunden.
     </div>
 
     <ng-template #noPersons>
-      Keine Einträge gefunden.
+      Keine verantwortliche Person(en) gefunden.
     </ng-template>
   </div>
 

@@ -42,6 +42,14 @@ interface Person {
   telephoneNumber: string;
 }
 
+interface Booking{
+
+}
+
+interface Field{
+
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -52,6 +60,8 @@ export class HomeComponent {
   players: Player[] = [];
   jerseys: Jersey[] = [];
   persons: Person[] = [];
+  bookings: Booking[] = [];
+  fields: Field[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -75,6 +85,22 @@ export class HomeComponent {
     this.http.get<Person[]>('http://localhost:8080/persons').subscribe(
       data => {
         this.persons = data;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+    this.http.get<Booking[]>('http://localhost:8080/bookings').subscribe(
+      data => {
+        this.bookings = data;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+    this.http.get<Field[]>('http://localhost:8080/fields').subscribe(
+      data => {
+        this.fields = data;
       },
       error => {
         console.error(error);
