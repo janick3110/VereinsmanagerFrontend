@@ -17,7 +17,7 @@ interface Person {
   postalCode: number;
   mailAdress: string;
   telephoneNumber: string;
-  role: string;
+  role: number;
 }
 
 @Component({

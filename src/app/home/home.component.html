@@ -62,7 +62,7 @@
   <div class="column" onclick="location.href='persons'">
     <h2>Personen</h2>
     <div *ngIf="persons!.length > 0; else noPersons">
-      {{ players!.length }} verantwortliche Person(en) gefunden.
+      {{ persons!.length }} verantwortliche Person(en) gefunden.
     </div>
 
     <ng-template #noPersons>

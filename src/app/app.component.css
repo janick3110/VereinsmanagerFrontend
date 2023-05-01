@@ -58,3 +58,15 @@ footer {
   margin-top: auto;
 }
 
+.column {
+  flex: 1;
+  margin: 2px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #aaa;
+}
+
+.column.segment {
+  background-color: rgba(170, 170, 170, 0.75);
+  padding: 20px;
+}
