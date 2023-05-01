@@ -10,6 +10,7 @@ import { ResponsiblesComponent } from './responsibles/responsibles.component';
 import { BookingsComponent} from './bookings/bookings.component';
 import { FieldsComponent} from './fields/fields.component';
 import { SportsActivitiesComponent } from  './sports-activities/sports-activities.component'
+import { RolesComponent } from  './roles/roles.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'bookings', component: BookingsComponent },
   { path: 'fields', component: FieldsComponent },
   { path: 'activities', component: SportsActivitiesComponent },
+  { path: 'roles', component: RolesComponent },
 //  { path: 'training', component: TrainingComponent }
 ];
 

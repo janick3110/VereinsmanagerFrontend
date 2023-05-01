@@ -47,9 +47,18 @@
       Keine Buchungen gefunden.
     </ng-template>
   </div>
+
   <div class="column" onclick="location.href='activities'">
     <h2>Angebote</h2>
+    <div *ngIf="activities!.length > 0; else noActivities">
+      {{ activities!.length }} Aktivität(en) gefunden.
+    </div>
+
+    <ng-template #noActivities>
+      Keine Aktivität(en) gefunden.
+    </ng-template>
   </div>
+
   <div class="column" onclick="location.href='persons'">
     <h2>Personen</h2>
     <div *ngIf="persons!.length > 0; else noPersons">
@@ -58,6 +67,17 @@
 
     <ng-template #noPersons>
       Keine verantwortliche Person(en) gefunden.
+    </ng-template>
+  </div>
+
+  <div class="column" onclick="location.href='roles'">
+    <h2>Rollen</h2>
+    <div *ngIf="roles!.length > 0; else noRoles">
+      {{ roles!.length }} definierte Rolle(n) gefunden.
+    </div>
+
+    <ng-template #noRoles>
+      Keine definierte Rolle(n) gefunden.
     </ng-template>
   </div>
 

@@ -50,6 +50,14 @@ interface Field{
 
 }
 
+interface Roles{
+
+}
+interface Activities{
+
+}
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -62,6 +70,8 @@ export class HomeComponent {
   persons: Person[] = [];
   bookings: Booking[] = [];
   fields: Field[] = [];
+  roles: Roles[] = [];
+  activities: Activities[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -101,6 +111,23 @@ export class HomeComponent {
     this.http.get<Field[]>('http://localhost:8080/fields').subscribe(
       data => {
         this.fields = data;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+    this.http.get<Roles[]>('http://localhost:8080/roles').subscribe(
+      data => {
+        this.roles = data;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+
+    this.http.get<Activities[]>('http://localhost:8080/activities').subscribe(
+      data => {
+        this.activities = data;
       },
       error => {
         console.error(error);
