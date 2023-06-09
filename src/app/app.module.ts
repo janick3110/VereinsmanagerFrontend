@@ -12,6 +12,8 @@ import { FieldsComponent } from './fields/fields.component';
 import { ResponsiblesComponent } from './responsibles/responsibles.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { SportsActivitiesComponent } from './sports-activities/sports-activities.component';
+import { TournamentComponent } from './tournament/tournament.component';
+import {SortPointsAndDifferencePipe} from "./tournament/sort-points-and-difference.pipe";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SportsActivitiesComponent } from './sports-activities/sports-activities
     FieldsComponent,
     ResponsiblesComponent,
     BookingsComponent,
-    SportsActivitiesComponent
+    SportsActivitiesComponent,
+    TournamentComponent,
+    SortPointsAndDifferencePipe
   ],
   imports: [
     BrowserModule,
