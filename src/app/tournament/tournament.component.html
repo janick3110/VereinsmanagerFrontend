@@ -3,6 +3,7 @@
   <tr>
     <th>Rank</th>
     <th>Team Name</th>
+    <th>Games</th>
     <th>Points</th>
     <th>Goals Shot</th>
     <th>Goals Conceded</th>
@@ -10,13 +11,14 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let result of games | sortPointsAndDifference">
-    <td>{{ result.id }}</td>
-    <td>{{ getTeamName(result.homeTeamID) }}</td> <!-- Replace 'teamName' with the actual property name -->
-    <td>{{ result.pointsHome + result.pointsGuest }}</td>
-    <td>{{ result.homeGoals + result.guestGoals }}</td>
-    <td>{{ result.homeGoals + result.guestGoals }}</td> <!-- Replace with actual goals conceded property -->
-    <td>{{ result.homeGoals + result.guestGoals - (result.homeGoals + result.guestGoals) }}</td> <!-- Replace with actual difference calculation -->
+  <tr *ngFor="let rank of ranks">
+    <td>{{ rank.rank }}</td>
+    <td>{{ getTeamName(rank.teamID) }}</td>
+    <td>{{ rank.games }}</td>
+    <td>{{ rank.points }}</td>
+    <td>{{ rank.goalsShot }}</td>
+    <td>{{ rank.goalsConceded }}</td>
+    <td>{{ rank.goalsShot - rank.goalsConceded }}</td>
   </tr>
   </tbody>
 </table>
